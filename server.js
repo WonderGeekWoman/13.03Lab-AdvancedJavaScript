@@ -18,6 +18,11 @@ app.get("/", function (request, response) {
   response.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
+// serve snowman.js for the lab
+app.get("/snowman.js", function(request, response) {
+  response.sendFile(path.resolve(__dirname, 'snowman.js'));
+});
+
 // example route to demonstrate server functionality
 // this can be accessed at http://localhost:8080/hello
 // and will respond with "Hello World, from the server!"

@@ -14,11 +14,14 @@ window.addEventListener("DOMContentLoaded", function() {
 function drawGround(canvas) {
    let context = canvas.getContext("2d");
 
-   // Background
-   context.fillStyle = "#bbb";
+   // Background with clouds and gradient
+   context.createLinearGradient(0, 0, 0, canvas.height);
+   context.addColorStop(0, #bbb, );
+   context.addColorStop(1, #fff, );
+   context.fillStyle = CanvasGradient;
    context.fillRect(0, 0, canvas.width, canvas.height);
 
-   // Ground
+   // Ground with grass
    context.fillStyle = "brown";
    context.fillRect(0, canvas.height - 80, canvas.width, canvas.height);
 }
