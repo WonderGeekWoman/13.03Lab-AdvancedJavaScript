@@ -136,6 +136,6 @@ function drawSingleFlake(canvas, x, y) {
    flake.lineTo(x + flakeSize / 2, y + flakeSize / 2);
    flake.lineTo(x, y + flakeSize);
    flake.lineTo(x - flakeSize / 2, y + flakeSize / 2);
-   flake.fillStyle = "#eee";
+   flake.fillStyle = "#fff";
    flake.fill();
 }
