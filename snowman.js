@@ -21,28 +21,49 @@ function drawGround(canvas) {
    context.fillStyle = gradient;
    context.fillRect(0, 0, canvas.width, canvas.height);
 
-   // Clouds
-   let clouds = canvas.getContext("2d");
-   clouds.fillStyle = "#d3d0d0";
-
-   clouds.beginPath();
-   clouds.arc(30, 0, 85, Math.PI, 0,  true);
-   clouds.fill();
-
-   clouds.beginPath();
-   clouds.arc(150, 0, 45, Math.PI, 0,  true);
-   clouds.fill();
-
-   clouds.beginPath();
-   clouds.arc(250, 0, 65, Math.PI, 0, true);
-   clouds.fill();
-
    // Ground
    context.fillStyle = "brown";
    context.fillRect(0, canvas.height - 80, canvas.width, canvas.height);
 
-   // Grass
+   // Clouds
+   let clouds = canvas.getContext("2d");
+   clouds.fillStyle = "#d3d0d0";
 
+      clouds.beginPath();
+      clouds.arc(30, 0, 85, Math.PI, 0,  true);
+      clouds.fill();
+
+      clouds.beginPath();
+      clouds.arc(150, 0, 45, Math.PI, 0,  true);
+      clouds.fill();
+
+      clouds.beginPath();
+      clouds.arc(250, 0, 65, Math.PI, 0, true);
+      clouds.fill();
+
+   // Grass
+   let grass = canvas.getContext("2d");
+   grass.strokeStyle = "green";
+   grass.lineWidth = 2;
+   grass.beginPath();
+
+      // Tuft 1
+      grass.moveTo(80, 220);
+      grass.lineTo(72, 204);
+      grass.moveTo(80, 220);
+      grass.lineTo(80, 198);
+      grass.moveTo(80, 220);
+      grass.lineTo(88, 204);
+
+      // Tuft 2
+      grass.moveTo(220, 220);
+      grass.lineTo(212, 204);
+      grass.moveTo(220, 220);
+      grass.lineTo(220, 198);
+      grass.moveTo(220, 220);
+      grass.lineTo(228, 204);
+
+      grass.stroke();
 }
 
 /* Draws the snowflakes */
@@ -70,20 +91,41 @@ function drawSnowman(canvas) {
    let body = canvas.getContext("2d");
    body.fillStyle = "white";
 
-   body.beginPath();
-   body.arc(150, 200, 50, 0, Math.PI * 2, true);
-   body.fill();
+      body.beginPath();
+      body.arc(150, 200, 50, 0, Math.PI * 2, true);
+      body.fill();
 
-   body.beginPath();
-   body.arc(150, 120, 40, 0, Math.PI * 2, true);
-   body.fill();
+      body.beginPath();
+      body.arc(150, 120, 40, 0, Math.PI * 2, true);
+      body.fill();
 
-   body.beginPath();
-   body.arc(150, 60, 25, 0, Math.PI * 2, true);
-   body.fill();
+      body.beginPath();
+      body.arc(150, 60, 25, 0, Math.PI * 2, true);
+      body.fill();
 
-   // Face and buttons
-   context.fillRect(0, 5, 20, 30);
+   // Face and Arms
+   let faceArms = canvas.getContext("2d");
+   faceArms.fillStyle = "black";
+
+      // Eyes
+      faceArms.fillRect(135, 52, 5, 5);
+      faceArms.fillRect(155, 52, 5, 5);
+
+      // Smile
+      faceArms.fillRect(139, 64, 5, 5);
+      faceArms.fillRect(144, 66, 5, 5);
+      faceArms.fillRect(149, 66, 5, 5);
+      faceArms.fillRect(154, 64, 5, 5);
+
+      // Arms
+      faceArms.strokeStyle = "brown";
+      faceArms.lineWidth = 5;
+      faceArms.beginPath();
+      faceArms.moveTo(120, 118);
+      faceArms.lineTo(70, 90);
+      faceArms.moveTo(180, 118);
+      faceArms.lineTo(230, 90);
+      faceArms.stroke();
 }
 
 /* Draws each snowflake */
