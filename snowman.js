@@ -14,16 +14,35 @@ window.addEventListener("DOMContentLoaded", function() {
 function drawGround(canvas) {
    let context = canvas.getContext("2d");
 
-   // Background with clouds and gradient
-   context.createLinearGradient(0, 0, 0, canvas.height);
-   context.addColorStop(0, #bbb, );
-   context.addColorStop(1, #fff, );
-   context.fillStyle = CanvasGradient;
+   // Background with gradient
+   let gradient = context.createLinearGradient(0, 0, 0, canvas.height);
+   gradient.addColorStop(0, "#4f5c79");
+   gradient.addColorStop(.75, "#869ac5");
+   context.fillStyle = gradient;
    context.fillRect(0, 0, canvas.width, canvas.height);
 
-   // Ground with grass
+   // Clouds
+   let clouds = canvas.getContext("2d");
+   clouds.fillStyle = "#d3d0d0";
+
+   clouds.beginPath();
+   clouds.arc(30, 0, 85, Math.PI, 0,  true);
+   clouds.fill();
+
+   clouds.beginPath();
+   clouds.arc(150, 0, 45, Math.PI, 0,  true);
+   clouds.fill();
+
+   clouds.beginPath();
+   clouds.arc(250, 0, 65, Math.PI, 0, true);
+   clouds.fill();
+
+   // Ground
    context.fillStyle = "brown";
    context.fillRect(0, canvas.height - 80, canvas.width, canvas.height);
+
+   // Grass
+
 }
 
 /* Draws the snowflakes */
@@ -45,25 +64,26 @@ function drawSnowText(canvas) {
    context.fillText("SNOW", canvas.width / 2, 10);
 }
 
-/* Draws the snowman body parts */
+/* Draws the snowman */
 function drawSnowman(canvas) {
-   let bottom = canvas.getContext("2d");
-   bottom.beginPath();
-   bottom.arc(150, 200, 50, 0, Math.PI * 2, true);
-   bottom.fillStyle = "white";
-   bottom.fill();
+   // Body
+   let body = canvas.getContext("2d");
+   body.fillStyle = "white";
 
-   let middle = canvas.getContext("2d");
-   middle.beginPath();
-   middle.arc(150, 120, 40, 0, Math.PI * 2, true);
-   middle.fillStyle = "white";
-   middle.fill();
+   body.beginPath();
+   body.arc(150, 200, 50, 0, Math.PI * 2, true);
+   body.fill();
 
-   let top = canvas.getContext("2d");
-   top.beginPath();
-   top.arc(150, 60, 25, 0, Math.PI * 2, true);
-   top.fillStyle = "white";
-   top.fill();
+   body.beginPath();
+   body.arc(150, 120, 40, 0, Math.PI * 2, true);
+   body.fill();
+
+   body.beginPath();
+   body.arc(150, 60, 25, 0, Math.PI * 2, true);
+   body.fill();
+
+   // Face and buttons
+   context.fillRect(0, 5, 20, 30);
 }
 
 /* Draws each snowflake */
